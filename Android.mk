@@ -27,3 +27,31 @@ LOCAL_MODULE := \
 	libjsoncpp
 
 include $(BUILD_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES:= \
+        chromium-overrides/src/lib_json/json_value.cpp \
+        src/lib_json/json_writer.cpp
+
+LOCAL_C_INCLUDES:= \
+        $(LOCAL_PATH)/chromium-overrides/include \
+        $(LOCAL_PATH)/include \
+        $(LOCAL_PATH)/src/lib_json
+
+
+LOCAL_EXPORT_C_INCLUDE_DIRS := \
+        $(LOCAL_PATH)/chromium-overrides/include \
+        $(LOCAL_PATH)/include
+
+LOCAL_CFLAGS := \
+        -DJSON_USE_EXCEPTION=0
+LOCAL_CFLAGS += -std=c++11
+
+LOCAL_MODULE_TAGS := \
+        tests
+
+LOCAL_MODULE := \
+        libjsoncppwriter
+
+include $(BUILD_SHARED_LIBRARY)
