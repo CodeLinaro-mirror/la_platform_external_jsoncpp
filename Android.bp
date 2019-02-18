@@ -33,6 +33,13 @@ cc_library_static {
     host_supported: true,
 }
 
+cc_library_shared {
+    name: "libjsoncppso",
+    defaults: ["libjsoncpp_defaults"],
+    vendor_available: true,
+    host_supported: true,
+}
+
 cc_library_static {
     name: "libjsoncpp_ndk",
     defaults: ["libjsoncpp_defaults"],
