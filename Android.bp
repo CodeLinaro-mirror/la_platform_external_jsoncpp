@@ -11,6 +11,8 @@ cc_defaults {
         "src/lib_json",
     ],
 
+    include_build_directory: false,
+
     export_include_dirs: ["include"],
 
     cflags: [
@@ -32,7 +34,12 @@ cc_library {
     name: "libjsoncpp",
     defaults: ["libjsoncpp_defaults"],
     vendor_available: true,
+    vndk: {
+        enabled: true,
+        support_system_process: true,
+    },
     host_supported: true,
+    recovery_available: true,
 }
 
 cc_library_static {
